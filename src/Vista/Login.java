@@ -3,6 +3,8 @@ package Vista;
 
 
 public class Login extends javax.swing.JFrame {
+    Login lg =new Login();
+    LoginDao login = new LoginDao();
 
     public Login() {
         initComponents();
@@ -12,8 +14,7 @@ public class Login extends javax.swing.JFrame {
         String correo = txtCorreo.getText();
         String pass = String.valueOf(txtPass.getPassword()); 
         if(!"".equals(correo) || !"".equals(pass)){
-            Login lg =new Login();
-            LoginDao login = new LoginDao();
+            
             lg = login.log(correo,pass);
            
         }
