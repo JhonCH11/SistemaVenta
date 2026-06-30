@@ -1,9 +1,12 @@
 
 package Vista;
+import Modelo.LoginDAO;
+import Modelo.login;
+
 
 
 public class Login extends javax.swing.JFrame {
-    Login lg =new Login();
+    login lg = new login();
     LoginDAO login = new LoginDAO();
 
     public Login() {
@@ -19,8 +22,7 @@ public class Login extends javax.swing.JFrame {
             Sistema sis= new Sistema();
             sis.setVisible(true);
             dispose();
-        }
-           
+            } 
         }
     }
 
