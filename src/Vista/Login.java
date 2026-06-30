@@ -14,8 +14,12 @@ public class Login extends javax.swing.JFrame {
         String correo = txtCorreo.getText();
         String pass = String.valueOf(txtPass.getPassword()); 
         if(!"".equals(correo) || !"".equals(pass)){
-            
             lg = login.log(correo,pass);
+            if(lg.getCorreo()!)= null && lg.getPass() !=null {
+            Sistema sis= new Sistema();
+            sis.setVisible(true);
+            dispose();
+        }
            
         }
     }
@@ -69,6 +73,11 @@ public class Login extends javax.swing.JFrame {
         jButton2.setBackground(new java.awt.Color(0, 0, 255));
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Iniciar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jPanel3.setBackground(new java.awt.Color(153, 153, 153));
         jPanel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -208,6 +217,10 @@ public class Login extends javax.swing.JFrame {
     private void txtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCorreoActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        validar();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
