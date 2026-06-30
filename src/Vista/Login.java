@@ -4,7 +4,7 @@ package Vista;
 
 public class Login extends javax.swing.JFrame {
     Login lg =new Login();
-    LoginDao login = new LoginDao();
+    LoginDAO login = new LoginDAO();
 
     public Login() {
         initComponents();
@@ -15,7 +15,7 @@ public class Login extends javax.swing.JFrame {
         String pass = String.valueOf(txtPass.getPassword()); 
         if(!"".equals(correo) || !"".equals(pass)){
             lg = login.log(correo,pass);
-            if(lg.getCorreo()!)= null && lg.getPass() !=null {
+            if(lg.getCorreo()!= null && lg.getPass() !=null) {
             Sistema sis= new Sistema();
             sis.setVisible(true);
             dispose();
