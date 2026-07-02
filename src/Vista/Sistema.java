@@ -4,11 +4,17 @@
  */
 package Vista;
 
+import Modelo.Cliente;
+import Modelo.ClienteDao;
+
 /**
  *
  * @author Jhon
  */
 public class Sistema extends javax.swing.JFrame {
+    
+    Cliente cl = new Cliente();
+    ClienteDao cliente = new ClienteDao();
 
     /**
      * Creates new form Sistema
@@ -799,6 +805,11 @@ public class Sistema extends javax.swing.JFrame {
         btnGuardarCliente.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnGuardarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/GuardarTodo.png"))); // NOI18N
         btnGuardarCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnGuardarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarClienteActionPerformed(evt);
+            }
+        });
 
         btnEditarCliente.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnEditarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Actualizar (2).png"))); // NOI18N
@@ -908,6 +919,13 @@ public class Sistema extends javax.swing.JFrame {
     private void txtRucVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRucVentaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtRucVentaActionPerformed
+
+    private void btnGuardarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarClienteActionPerformed
+        // TODO add your handling code here:
+        if(!"".equals(txtDniCliente.getText()) || !"".equals(txtNombreCliente.getText()) ||!"".equals(txtTelefonoCliente.getText()) || !"".equals(txtDireccionCliente.getText()){
+            
+        }
+    }//GEN-LAST:event_btnGuardarClienteActionPerformed
 
     /**
      * @param args the command line arguments
