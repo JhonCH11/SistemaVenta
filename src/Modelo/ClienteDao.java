@@ -26,6 +26,7 @@ public class ClienteDao {
             ps.setString(4,cl.getDireccion());
             ps.setString(5,cl.getRazon());
             ps.execute();
+            return true;
         }catch (SQLException e){
             JOptionPane.showMessageDialog(null,e.toString());
             return false;
@@ -37,4 +38,4 @@ public class ClienteDao {
             }
         }
     }
-}
+}    
