@@ -1,20 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package Vista;
 
 import Modelo.Cliente;
 import Modelo.ClienteDao;
+import javax.swing.JOptionPane;
 
-/**
- *
- * @author Jhon
- */
 public class Sistema extends javax.swing.JFrame {
     
     Cliente cl = new Cliente();
-    ClienteDao cliente = new ClienteDao();
+    ClienteDao client = new ClienteDao();
 
     /**
      * Creates new form Sistema
@@ -922,8 +916,17 @@ public class Sistema extends javax.swing.JFrame {
 
     private void btnGuardarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarClienteActionPerformed
         // TODO add your handling code here:
-        if(!"".equals(txtDniCliente.getText()) || !"".equals(txtNombreCliente.getText()) ||!"".equals(txtTelefonoCliente.getText()) || !"".equals(txtDireccionCliente.getText()){
-            
+        if(!"".equals(txtDniCliente.getText()) || !"".equals(txtNombreCliente.getText()) ||!"".equals(txtTelefonoCliente.getText()) || !"".equals(txtDireccionCliente.getText())){
+            cl.setDni(Integer.parseInt(txtDniCliente.getText()));
+            cl.setNombre(txtNombreCliente.getText());
+            cl.setTelefono(Integer.parseInt(txtTelefonoCliente.getText()));
+            cl.setDireccion(txtDireccionCliente.getText());
+            cl.setRazon(txtRazonCliente.getText());
+            client.RegistrarCliente(cl);
+            JOptionPane.showMessageDialog(null,"Cliente Registrado");
+        }
+        else{
+            JOptionPane.showMessageDialog(null,"CLos campos estan vacíos");
         }
     }//GEN-LAST:event_btnGuardarClienteActionPerformed
 
