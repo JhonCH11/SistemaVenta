@@ -4,19 +4,27 @@ package Vista;
 import Modelo.Cliente;
 import Modelo.ClienteDao;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 public class Sistema extends javax.swing.JFrame {
     
     Cliente cl = new Cliente();
     ClienteDao client = new ClienteDao();
-
+    DefaultTableModel modelo;
     /**
      * Creates new form Sistema
      */
     public Sistema() {
         initComponents();
     }
-
+    public void ListarCliente(){
+        List<Cliente> ListarCl = client.ListarCliente();
+        modelo = (DefaultTableModel) TableCliente.getModel();
+        Object[] ob =new Object[6];
+        for (int i = 0; i <ListarCl.size();i++){
+            ob[0]
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
