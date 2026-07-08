@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Modelo;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
@@ -10,10 +11,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.sql.ResultSet;
-import java.util.HashSet;
-import java.util.Set;
-
-
 
 public class ClienteDao {
     
@@ -67,5 +64,25 @@ public class ClienteDao {
             System.out.println(e.toString());
         }
         return ListaCl;
+    }
+    
+    public boolean EliminarCliente(int id){
+        String sql = "DELETE FROM cliente where id = ?";
+        try{
+            ps = con.prepareStatement(sql);
+            ps.setInt(1,id);
+            ps.execute();
+            return true;
+            
+        }catch(SQLException e){
+            System.out.println(e.toString());
+            return false;
+        }finally{
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                System.out.println(ex.toString());
+            }
+        }
     }
 }    

@@ -452,6 +452,11 @@ public class Sistema extends javax.swing.JFrame {
         btnEliminarCliente.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnEliminarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/eliminar.png"))); // NOI18N
         btnEliminarCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEliminarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarClienteActionPerformed(evt);
+            }
+        });
 
         btnNuevoCliente.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnNuevoCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/nuevo.png"))); // NOI18N
@@ -957,6 +962,8 @@ public class Sistema extends javax.swing.JFrame {
             cl.setDireccion(txtDireccionCliente.getText());
             cl.setRazon(txtRazonCliente.getText());
             client.RegistrarCliente(cl);
+            LimpiarTable();
+            ListarCliente();
             JOptionPane.showMessageDialog(null,"Cliente Registrado");
         }
         else{
@@ -979,6 +986,20 @@ public class Sistema extends javax.swing.JFrame {
         txtDireccionCliente.setText(TableCliente.getValueAt(fila,4).toString());
         txtRazonCliente.setText(TableCliente.getValueAt(fila,5).toString());
     }//GEN-LAST:event_TableClienteMouseClicked
+
+    private void btnEliminarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarClienteActionPerformed
+        // TODO add your handling code here:
+        if(!"".equals(txtIdCliente.getText())){
+            int pregunta = JOptionPane.showConfirmDialog(null, "Esta seguro de eliminar");
+            if (pregunta == 0){
+                int id = Integer.parseInt(txtIdCliente.getText());
+                client.EliminarCliente(id);
+                LimpiarTable();
+                ListarCliente();
+                
+            }
+        }
+    }//GEN-LAST:event_btnEliminarClienteActionPerformed
 
     /**
      * @param args the command line arguments
