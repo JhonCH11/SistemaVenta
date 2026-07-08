@@ -3,6 +3,7 @@ package Vista;
 
 import Modelo.Cliente;
 import Modelo.ClienteDao;
+import java.util.HashSet;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -17,6 +18,7 @@ public class Sistema extends javax.swing.JFrame {
      */
     public Sistema() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
     public void ListarCliente(){
         List<Cliente> ListarCl = client.ListarCliente();
@@ -448,6 +450,11 @@ public class Sistema extends javax.swing.JFrame {
         btnEditarCliente.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnEditarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Actualizar (2).png"))); // NOI18N
         btnEditarCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEditarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarClienteActionPerformed(evt);
+            }
+        });
 
         btnEliminarCliente.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnEliminarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/eliminar.png"))); // NOI18N
@@ -963,6 +970,7 @@ public class Sistema extends javax.swing.JFrame {
             cl.setRazon(txtRazonCliente.getText());
             client.RegistrarCliente(cl);
             LimpiarTable();
+            LimpiarCliente();
             ListarCliente();
             JOptionPane.showMessageDialog(null,"Cliente Registrado");
         }
@@ -996,10 +1004,36 @@ public class Sistema extends javax.swing.JFrame {
                 client.EliminarCliente(id);
                 LimpiarTable();
                 ListarCliente();
-                
+                LimpiarCliente();
             }
         }
     }//GEN-LAST:event_btnEliminarClienteActionPerformed
+
+    private void btnEditarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarClienteActionPerformed
+        // TODO add your handling code here:
+        if("".equals(txtIdCliente.getText())){
+            JOptionPane.showMessageDialog(null, "seleccione una fila");
+            
+        }
+        else{
+            cl.setDni(Integer.parseInt(txtDniCliente.getText()));
+            cl.setNombre(txtNombreCliente.getText());
+            cl.setTelefono(Integer.parseInt(txtTelefonoCliente.getText()));
+            cl.setDireccion(txtDireccionCliente.getText());
+            cl.setRazon(txtRazonCliente.getText());
+            cl.setId(Integer.parseInt((txtIdCliente.getText())));
+            if (!"".equals(txtDniCliente.getText()) || !"".equals(txtNombreCliente.getText()) || !"".equals(txtTelefonoCliente.getText()) ){
+                client.ModificarCliente(cl);
+                LimpiarTable();
+                LimpiarCliente();
+                ListarCliente();
+                
+            }
+            
+            
+            
+        }
+    }//GEN-LAST:event_btnEditarClienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1146,4 +1180,12 @@ public class Sistema extends javax.swing.JFrame {
     private javax.swing.JTextField txtTelefonoCliente;
     private javax.swing.JTextField txtTelefonoProveedor;
     // End of variables declaration//GEN-END:variables
+   private void LimpiarCliente(){
+        txtIdCliente.setText("");
+        txtDniCliente.setText("");
+        txtNombreCliente.setText("");
+        txtTelefonoCliente.setText("");
+        txtDireccionCliente.setText("");
+        txtRazonCliente.setText("");
+    } 
 }
