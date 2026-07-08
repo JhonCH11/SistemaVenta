@@ -67,7 +67,7 @@ public class ClienteDao {
     }
     
     public boolean EliminarCliente(int id){
-        String sql = "DELETE FROM cliente where id = ?";
+        String sql = "DELETE FROM clientes where id = ?";
         try{
             ps = con.prepareStatement(sql);
             ps.setInt(1,id);
