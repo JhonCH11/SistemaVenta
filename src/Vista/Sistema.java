@@ -1029,9 +1029,6 @@ public class Sistema extends javax.swing.JFrame {
                 ListarCliente();
                 
             }
-            
-            
-            
         }
     }//GEN-LAST:event_btnEditarClienteActionPerformed
 
