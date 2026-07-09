@@ -1018,8 +1018,8 @@ public class Sistema extends javax.swing.JFrame {
 
     private void btnEditarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarClienteActionPerformed
         // TODO add your handling code here:
-        if ("".equals(txtIdCliente.getText())) {
-            JOptionPane.showMessageDialog(null, "seleccione una fila");
+        if ("".equals(txtDniCliente.getText()) || "".equals(txtNombreCliente.getText())) {
+            JOptionPane.showMessageDialog(null, "Los campos estan vacios");
 
         } else {
 
@@ -1034,7 +1034,7 @@ public class Sistema extends javax.swing.JFrame {
                 LimpiarTable();
                 LimpiarCliente();
                 ListarCliente();
-            }else{
+            } else {
                 JOptionPane.showMessageDialog(null, "Los campos estan vacios");
             }
         }
