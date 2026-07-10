@@ -2,6 +2,8 @@ package Vista;
 
 import Modelo.Cliente;
 import Modelo.ClienteDao;
+import Modelo.Proveedor;
+import Modelo.ProveedorDao;
 import java.util.HashSet;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -12,10 +14,9 @@ public class Sistema extends javax.swing.JFrame {
     Cliente cl = new Cliente();
     ClienteDao client = new ClienteDao();
     DefaultTableModel modelo = new DefaultTableModel();
-
-    /**
-     * Creates new form Sistema
-     */
+    Proveedor pr = new Proveedor();
+    ProveedorDao PrDao = new ProveedorDao();
+    
     public Sistema() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -594,6 +595,11 @@ public class Sistema extends javax.swing.JFrame {
         }
 
         btnAgregarProveedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/GuardarTodo.png"))); // NOI18N
+        btnAgregarProveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarProveedorActionPerformed(evt);
+            }
+        });
 
         btnActualizarProveedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Actualizar (2).png"))); // NOI18N
 
@@ -1044,6 +1050,22 @@ public class Sistema extends javax.swing.JFrame {
         // TODO add your handling code here:
         LimpiarCliente();
     }//GEN-LAST:event_btnNuevoClienteActionPerformed
+
+    private void btnAgregarProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarProveedorActionPerformed
+        // TODO add your handling code here:
+        if(!"".equals(txtRucProveedor.getText()) || !"".equals(txtNombreProveedor.getText()) || !"".equals(txtTelefonoProveedor.getText()) || !"".equals(txtDireccionProveedor.getText()) || !"".equals(txtRazonProveedor.getText())){
+            pr.setRuc(Integer.parseInt(txtRucProveedor.getText()));
+            pr.setNombre(txtRucProveedor.getText());
+            pr.setTelefono(Integer.parseInt(txtTelefonoProveedor.getText()));
+            pr.setDireccion(txtDireccionProveedor.getText());
+            pr.setRazon(txtRazonProveedor.getText());
+            PrDao.RegistrarProveedor(pr);
+        }
+        else{
+            JOptionPane.showMessageDialog(null,"Los campos estan vacios");
+        }
+        
+    }//GEN-LAST:event_btnAgregarProveedorActionPerformed
 
     /**
      * @param args the command line arguments
