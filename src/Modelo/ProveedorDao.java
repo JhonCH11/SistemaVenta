@@ -3,11 +3,15 @@ package Modelo;
 import java.sql.Connection;
 import java.sql.PreparedStatement; 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.sql.ResultSet;
 
 public class ProveedorDao {
     Connection con;
     Conexion cn = new Conexion();
     PreparedStatement ps;
+    ResultSet rs;
     
     public boolean RegistrarProveedor(Proveedor pr){
         String sql ="INSERT INTO proveedor (ruc, nombre, telefono, direccion, razon) Values(?,?,?,?,?)";
@@ -31,6 +35,23 @@ public class ProveedorDao {
             }catch(SQLException e){
                 System.out.println();
             }
+        }
+    }
+    
+    public List ListarProveedor(){
+        List<Proveedor> Listapr = new ArrayList();
+        String sql = "SELECT * FROM proveedor";
+        try{
+            con = cn.getConnection();
+            ps=con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while(rs.next){
+                Proveedor pr = new Proveedor();
+                
+            }
+            
+        }catch(){
+            
         }
     }
 }
