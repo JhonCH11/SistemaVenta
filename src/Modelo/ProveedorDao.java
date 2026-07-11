@@ -45,14 +45,20 @@ public class ProveedorDao {
             con = cn.getConnection();
             ps=con.prepareStatement(sql);
             rs = ps.executeQuery();
-            while(rs.next){
+            while(rs.next()){
                 Proveedor pr = new Proveedor();
-                
+                pr.setId(rs.getInt("id"));
+                pr.setRuc(rs.getInt("ruc"));
+                pr.setNombre(rs.getString("nombre"));
+                pr.setTelefono(rs.getInt("telefono"));
+                pr.setDireccion(rs.getString("direccion"));
+                pr.setRazon(rs.getString("razon"));
+                Listapr.add(pr);
             }
-            
-        }catch(){
-            
+        }catch(SQLException e){
+            System.out.println(e.toString());
         }
+        return Listapr;
     }
 }
 
