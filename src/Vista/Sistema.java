@@ -2,6 +2,7 @@ package Vista;
 
 import Modelo.Cliente;
 import Modelo.ClienteDao;
+import Modelo.Productos;
 import Modelo.Proveedor;
 import Modelo.ProveedorDao;
 import java.util.HashSet;
@@ -9,18 +10,23 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
+import Modelo.ProductosDao;
+
 public class Sistema extends javax.swing.JFrame {
 
     Cliente cl = new Cliente();
     ClienteDao client = new ClienteDao();
     DefaultTableModel modelo = new DefaultTableModel();
     Proveedor pr = new Proveedor();
+    Productos pro = new Productos();
+    ProductosDao proDao = new ProductosDao();
     ProveedorDao PrDao = new ProveedorDao();
 
     public Sistema() {
         initComponents();
         this.setLocationRelativeTo(null);
         txtIdCliente.setVisible(false);
+        proDao.ConsultarProveedor(cbxProveedorPro);
     }
 
     public void ListarCliente() {
@@ -148,7 +154,7 @@ public class Sistema extends javax.swing.JFrame {
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
-        txtCodPro = new javax.swing.JTextField();
+        txtCodigoPro = new javax.swing.JTextField();
         txtDesPro = new javax.swing.JTextField();
         txtCantPro = new javax.swing.JTextField();
         txtPrecioPro = new javax.swing.JTextField();
@@ -156,7 +162,7 @@ public class Sistema extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         TableProducto = new javax.swing.JTable();
         btnGuardarPro = new javax.swing.JButton();
-        btnActualizarPro = new javax.swing.JButton();
+        btnEditarProveedor = new javax.swing.JButton();
         btnEliminarPro = new javax.swing.JButton();
         btnNuevoPro = new javax.swing.JButton();
         btnExcelPro = new javax.swing.JButton();
@@ -770,8 +776,18 @@ public class Sistema extends javax.swing.JFrame {
         }
 
         btnGuardarPro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/GuardarTodo.png"))); // NOI18N
+        btnGuardarPro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarProActionPerformed(evt);
+            }
+        });
 
-        btnActualizarPro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Actualizar (2).png"))); // NOI18N
+        btnEditarProveedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Actualizar (2).png"))); // NOI18N
+        btnEditarProveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarProveedorActionPerformed(evt);
+            }
+        });
 
         btnEliminarPro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/eliminar.png"))); // NOI18N
 
@@ -789,7 +805,7 @@ public class Sistema extends javax.swing.JFrame {
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(btnGuardarPro)
                         .addGap(82, 82, 82)
-                        .addComponent(btnActualizarPro)
+                        .addComponent(btnEditarProveedor)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnEliminarPro))
                     .addGroup(jPanel5Layout.createSequentialGroup()
@@ -810,7 +826,7 @@ public class Sistema extends javax.swing.JFrame {
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(txtDesPro, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel5Layout.createSequentialGroup()
-                                        .addComponent(txtCodPro, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtCodigoPro, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(txtIdpro, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
                                     .addComponent(txtCantPro, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -831,7 +847,7 @@ public class Sistema extends javax.swing.JFrame {
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel22)
-                                    .addComponent(txtCodPro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtCodigoPro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtIdpro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(34, 34, 34)
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -852,7 +868,7 @@ public class Sistema extends javax.swing.JFrame {
                                 .addGap(48, 48, 48)
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(btnGuardarPro)
-                                    .addComponent(btnActualizarPro)))
+                                    .addComponent(btnEditarProveedor)))
                             .addComponent(btnEliminarPro))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1029,6 +1045,7 @@ public class Sistema extends javax.swing.JFrame {
             cl.setDireccion(txtDireccionCliente.getText());
             cl.setRazon(txtRazonCliente.getText());
             client.RegistrarCliente(cl);
+            JOptionPane.showMessageDialog(null,"Cliente Registrado");
             LimpiarTable();
             LimpiarCliente();
             ListarCliente();
@@ -1083,6 +1100,7 @@ public class Sistema extends javax.swing.JFrame {
                 cl.setRazon(txtRazonCliente.getText());
                 cl.setId(Integer.parseInt((txtIdCliente.getText())));
                 client.ModificarCliente(cl);
+                JOptionPane.showMessageDialog(null,"Cliente Modificado");
                 LimpiarTable();
                 LimpiarCliente();
                 ListarCliente();
@@ -1106,6 +1124,7 @@ public class Sistema extends javax.swing.JFrame {
             pr.setDireccion(txtDireccionProveedor.getText());
             pr.setRazon(txtRazonProveedor.getText());
             PrDao.RegistrarProveedor(pr);
+            JOptionPane.showMessageDialog(null, "Proveedor registrado");
             LimpiarTable();
             ListarProveedor();
             LimpiarProveedor();
@@ -1167,6 +1186,7 @@ public class Sistema extends javax.swing.JFrame {
                 pr.setRazon(txtRazonProveedor.getText());
                 pr.setId(Integer.parseInt(txtIdProveedor.getText()));
                 PrDao.ModificarProveedor(pr);
+                JOptionPane.showMessageDialog(null,"Proveedor Modificado");
                 LimpiarTable();
                 ListarProveedor();
                 LimpiarProveedor();
@@ -1179,6 +1199,27 @@ public class Sistema extends javax.swing.JFrame {
         // TODO add your handling code here:
         LimpiarProveedor();
     }//GEN-LAST:event_btnNuevoProveedorActionPerformed
+
+    private void btnGuardarProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarProActionPerformed
+        // TODO add your handling code here:
+        if(!"".equals(txtCodigoPro.getText()) || !"".equals(txtDesPro.getText()) || !"".equals(cbxProveedorPro.getSelectedItem ()) || !"".equals(txtCantPro.getText()) || !"".equals(txtPrecioPro.getText())){
+            pro.setCodigo(txtCodigoPro.getText());
+            pro.setNombre(txtCodigoPro.getText());
+            pro.setProveedor(cbxProveedorPro.getSelectedItem().toString());
+            pro.setStock(Integer.parseInt(txtCantPro.getText()));
+            pro.setPrecio(Double.parseDouble(txtPrecioPro.getText()));
+            proDao.RegistrarProductos(pro);
+            JOptionPane.showMessageDialog(null,"Producto registrado");
+        }else{
+            JOptionPane.showMessageDialog(null, "Los campos estan vacios");
+        } 
+    }//GEN-LAST:event_btnGuardarProActionPerformed
+
+    private void btnEditarProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarProveedorActionPerformed
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_btnEditarProveedorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1223,10 +1264,10 @@ public class Sistema extends javax.swing.JFrame {
     private javax.swing.JTable TableProveedor;
     private javax.swing.JTable TableVenta;
     private javax.swing.JTable TableVentas;
-    private javax.swing.JButton btnActualizarPro;
     private javax.swing.JButton btnActualizarProveedor;
     private javax.swing.JButton btnAgregarProveedor;
     private javax.swing.JButton btnEditarCliente;
+    private javax.swing.JButton btnEditarProveedor;
     private javax.swing.JButton btnEliminarCliente;
     private javax.swing.JButton btnEliminarPro;
     private javax.swing.JButton btnEliminarProveedor;
@@ -1297,7 +1338,7 @@ public class Sistema extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField26;
     private javax.swing.JTextField txtCantPro;
     private javax.swing.JTextField txtCantidadVenta;
-    private javax.swing.JTextField txtCodPro;
+    private javax.swing.JTextField txtCodigoPro;
     private javax.swing.JTextField txtCodigoVenta;
     private javax.swing.JTextField txtDesPro;
     private javax.swing.JTextField txtDescripcionVenta;

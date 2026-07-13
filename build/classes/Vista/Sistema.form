@@ -1051,7 +1051,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="btnGuardarPro" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
-                              <Component id="btnActualizarPro" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnEditarProveedor" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                               <Component id="btnEliminarPro" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -1076,7 +1076,7 @@
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Component id="txtDesPro" min="-2" pref="134" max="-2" attributes="0"/>
                                           <Group type="102" attributes="0">
-                                              <Component id="txtCodPro" min="-2" pref="134" max="-2" attributes="0"/>
+                                              <Component id="txtCodigoPro" min="-2" pref="134" max="-2" attributes="0"/>
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                               <Component id="txtIdpro" pref="0" max="32767" attributes="0"/>
                                           </Group>
@@ -1105,7 +1105,7 @@
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel22" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="txtCodPro" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtCodigoPro" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="txtIdpro" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
@@ -1131,7 +1131,7 @@
                                       <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="btnGuardarPro" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="btnActualizarPro" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="btnEditarProveedor" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Component id="btnEliminarPro" min="-2" max="-2" attributes="0"/>
@@ -1193,7 +1193,7 @@
                 <Property name="text" type="java.lang.String" value="Proveedor:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtCodPro">
+            <Component class="javax.swing.JTextField" name="txtCodigoPro">
             </Component>
             <Component class="javax.swing.JTextField" name="txtDesPro">
             </Component>
@@ -1275,13 +1275,19 @@
                   <Image iconType="3" name="/Img/GuardarTodo.png"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGuardarProActionPerformed"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnActualizarPro">
+            <Component class="javax.swing.JButton" name="btnEditarProveedor">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/Img/Actualizar (2).png"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEditarProveedorActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnEliminarPro">
               <Properties>
