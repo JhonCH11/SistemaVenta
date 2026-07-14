@@ -1204,7 +1204,7 @@ public class Sistema extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(!"".equals(txtCodigoPro.getText()) || !"".equals(txtDesPro.getText()) || !"".equals(cbxProveedorPro.getSelectedItem ()) || !"".equals(txtCantPro.getText()) || !"".equals(txtPrecioPro.getText())){
             pro.setCodigo(txtCodigoPro.getText());
-            pro.setNombre(txtCodigoPro.getText());
+            pro.setNombre(txtDesPro.getText());
             pro.setProveedor(cbxProveedorPro.getSelectedItem().toString());
             pro.setStock(Integer.parseInt(txtCantPro.getText()));
             pro.setPrecio(Double.parseDouble(txtPrecioPro.getText()));

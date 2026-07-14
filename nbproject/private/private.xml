@@ -3,14 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Jhon/Desktop/PROYECTO_JAVA_SISTEMA_VENTA/SistemaVenta/src/Modelo/LoginDAO.java</file>
-            <file>file:/C:/Users/Jhon/Desktop/PROYECTO_JAVA_SISTEMA_VENTA/SistemaVenta/src/Modelo/ProveedorDao.java</file>
-            <file>file:/C:/Users/Jhon/Desktop/PROYECTO_JAVA_SISTEMA_VENTA/SistemaVenta/src/Modelo/login.java</file>
-            <file>file:/C:/Users/Jhon/Desktop/PROYECTO_JAVA_SISTEMA_VENTA/SistemaVenta/src/sistemaventa/SistemaVenta.java</file>
-            <file>file:/C:/Users/Jhon/Desktop/PROYECTO_JAVA_SISTEMA_VENTA/SistemaVenta/src/Vista/Sistema.java</file>
-            <file>file:/C:/Users/Jhon/Desktop/PROYECTO_JAVA_SISTEMA_VENTA/SistemaVenta/src/Vista/Login.java</file>
-            <file>file:/C:/Users/Jhon/Desktop/PROYECTO_JAVA_SISTEMA_VENTA/SistemaVenta/src/Modelo/Conexion.java</file>
-            <file>file:/C:/Users/Jhon/Desktop/PROYECTO_JAVA_SISTEMA_VENTA/SistemaVenta/src/Modelo/ProductosDao.java</file>
+            <file>file:/C:/Users/Jhon/Desktop/NETBEANS%20TRABAJOS/PROYECTO_PROPIO_JAVA-WITH_MYSQL/SistemaVenta/src/Vista/Login.java</file>
+            <file>file:/C:/Users/Jhon/Desktop/NETBEANS%20TRABAJOS/PROYECTO_PROPIO_JAVA-WITH_MYSQL/SistemaVenta/src/Vista/Sistema.java</file>
+            <file>file:/C:/Users/Jhon/Desktop/NETBEANS%20TRABAJOS/PROYECTO_PROPIO_JAVA-WITH_MYSQL/SistemaVenta/src/Modelo/Conexion.java</file>
+            <file>file:/C:/Users/Jhon/Desktop/NETBEANS%20TRABAJOS/PROYECTO_PROPIO_JAVA-WITH_MYSQL/SistemaVenta/src/Modelo/LoginDAO.java</file>
+            <file>file:/C:/Users/Jhon/Desktop/NETBEANS%20TRABAJOS/PROYECTO_PROPIO_JAVA-WITH_MYSQL/SistemaVenta/src/Modelo/login.java</file>
+            <file>file:/C:/Users/Jhon/Desktop/NETBEANS%20TRABAJOS/PROYECTO_PROPIO_JAVA-WITH_MYSQL/SistemaVenta/src/Modelo/Cliente.java</file>
+            <file>file:/C:/Users/Jhon/Desktop/NETBEANS%20TRABAJOS/PROYECTO_PROPIO_JAVA-WITH_MYSQL/SistemaVenta/src/Modelo/ClienteDao.java</file>
+            <file>file:/C:/Users/Jhon/Desktop/NETBEANS%20TRABAJOS/PROYECTO_PROPIO_JAVA-WITH_MYSQL/SistemaVenta/src/Modelo/Proveedor.java</file>
+            <file>file:/C:/Users/Jhon/Desktop/NETBEANS%20TRABAJOS/PROYECTO_PROPIO_JAVA-WITH_MYSQL/SistemaVenta/src/Modelo/ProveedorDao.java</file>
+            <file>file:/C:/Users/Jhon/Desktop/NETBEANS%20TRABAJOS/PROYECTO_PROPIO_JAVA-WITH_MYSQL/SistemaVenta/src/sistemaventa/SistemaVenta.java</file>
+            <file>file:/C:/Users/Jhon/Desktop/NETBEANS%20TRABAJOS/PROYECTO_PROPIO_JAVA-WITH_MYSQL/SistemaVenta/src/Modelo/ProductosDao.java</file>
+            <file>file:/C:/Users/Jhon/Desktop/NETBEANS%20TRABAJOS/PROYECTO_PROPIO_JAVA-WITH_MYSQL/SistemaVenta/src/Modelo/Productos.java</file>
         </group>
     </open-files>
 </project-private>
